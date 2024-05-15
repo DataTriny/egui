@@ -20,8 +20,8 @@ checksum = "c71b1793ee61086797f5c80b6efa2b8ffa6d5dd703f118545808a7f2e27f7046"
 
 [[package]]
 name = "accesskit"
-version = "0.12.3"
-source = "git+https://github.com/AccessKit/accesskit.git#3db0fdb6fcd0078c5480fb3a5bf7d5332aad82e5"
+version = "0.14.0"
+source = "git+https://github.com/AccessKit/accesskit.git?branch=winit-0.29-backport#b0e8b7f303186fc9d6acbcdb4bcbc56045fef616"
 dependencies = [
  "enumn",
  "serde",
@@ -29,8 +29,8 @@ dependencies = [
 
 [[package]]
 name = "accesskit_atspi_common"
-version = "0.2.0"
-source = "git+https://github.com/AccessKit/accesskit.git#3db0fdb6fcd0078c5480fb3a5bf7d5332aad82e5"
+version = "0.4.2"
+source = "git+https://github.com/AccessKit/accesskit.git?branch=winit-0.29-backport#b0e8b7f303186fc9d6acbcdb4bcbc56045fef616"
 dependencies = [
  "accesskit",
  "accesskit_consumer",
@@ -42,28 +42,30 @@ dependencies = [
 
 [[package]]
 name = "accesskit_consumer"
-version = "0.17.1"
-source = "git+https://github.com/AccessKit/accesskit.git#3db0fdb6fcd0078c5480fb3a5bf7d5332aad82e5"
+version = "0.20.0"
+source = "git+https://github.com/AccessKit/accesskit.git?branch=winit-0.29-backport#b0e8b7f303186fc9d6acbcdb4bcbc56045fef616"
 dependencies = [
  "accesskit",
+ "immutable-chunkmap",
 ]
 
 [[package]]
 name = "accesskit_macos"
-version = "0.11.1"
-source = "git+https://github.com/AccessKit/accesskit.git#3db0fdb6fcd0078c5480fb3a5bf7d5332aad82e5"
+version = "0.13.2"
+source = "git+https://github.com/AccessKit/accesskit.git?branch=winit-0.29-backport#b0e8b7f303186fc9d6acbcdb4bcbc56045fef616"
 dependencies = [
  "accesskit",
  "accesskit_consumer",
- "icrate 0.1.0",
- "objc2 0.5.0",
+ "objc2 0.5.1",
+ "objc2-app-kit",
+ "objc2-foundation",
  "once_cell",
 ]
 
 [[package]]
 name = "accesskit_unix"
-version = "0.7.5"
-source = "git+https://github.com/AccessKit/accesskit.git#3db0fdb6fcd0078c5480fb3a5bf7d5332aad82e5"
+version = "0.9.2"
+source = "git+https://github.com/AccessKit/accesskit.git?branch=winit-0.29-backport#b0e8b7f303186fc9d6acbcdb4bcbc56045fef616"
 dependencies = [
  "accesskit",
  "accesskit_atspi_common",
@@ -73,15 +75,14 @@ dependencies = [
  "atspi",
  "futures-lite",
  "futures-util",
- "once_cell",
  "serde",
  "zbus",
 ]
 
 [[package]]
 name = "accesskit_windows"
-version = "0.16.4"
-source = "git+https://github.com/AccessKit/accesskit.git#3db0fdb6fcd0078c5480fb3a5bf7d5332aad82e5"
+version = "0.18.2"
+source = "git+https://github.com/AccessKit/accesskit.git?branch=winit-0.29-backport#b0e8b7f303186fc9d6acbcdb4bcbc56045fef616"
 dependencies = [
  "accesskit",
  "accesskit_consumer",
@@ -92,8 +93,8 @@ dependencies = [
 
 [[package]]
 name = "accesskit_winit"
-version = "0.18.7"
-source = "git+https://github.com/AccessKit/accesskit.git#3db0fdb6fcd0078c5480fb3a5bf7d5332aad82e5"
+version = "0.20.2"
+source = "git+https://github.com/AccessKit/accesskit.git?branch=winit-0.29-backport#b0e8b7f303186fc9d6acbcdb4bcbc56045fef616"
 dependencies = [
  "accesskit",
  "accesskit_macos",
@@ -536,6 +537,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "bitvec"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1bc2832c24239b0141d5674bb9174f9d68a8b5b3f2753311927c172ca46f7e9c"
+dependencies = [
+ "funty",
+ "radium",
+ "tap",
+ "wyz",
+]
+
+[[package]]
 name = "block"
 version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -571,12 +584,11 @@ dependencies = [
 
 [[package]]
 name = "block2"
-version = "0.4.0"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e58aa60e59d8dbfcc36138f5f18be5f24394d33b38b24f7fd0b1caa33095f22f"
+checksum = "43ff7d91d3c1d568065b06c899777d1e48dcf76103a672a0adbc238a7f247f1e"
 dependencies = [
- "block-sys",
- "objc2 0.5.0",
+ "objc2 0.5.1",
 ]
 
 [[package]]
@@ -1668,6 +1680,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "funty"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e6d5a32815ae3f33302d95fdcb2ce17862f8c65363dcfd29360480ba1001fc9c"
+
+[[package]]
 name = "futures-core"
 version = "0.3.28"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1861,7 +1879,7 @@ dependencies = [
  "glutin_egl_sys",
  "glutin_glx_sys",
  "glutin_wgl_sys",
- "icrate 0.0.4",
+ "icrate",
  "libloading 0.8.0",
  "objc2 0.4.1",
  "once_cell",
@@ -2123,16 +2141,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "icrate"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e286f4b975ac6c054971a0600a9b76438b332edace54bff79c71c9d3adfc9772"
-dependencies = [
- "block2 0.4.0",
- "objc2 0.5.0",
-]
-
-[[package]]
 name = "idna"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2172,6 +2180,17 @@ name = "imagesize"
 version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "029d73f573d8e8d63e6d5020011d3255b28c3ba85d6cf870a07184ed23de9284"
+
+[[package]]
+name = "immutable-chunkmap"
+version = "2.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "374b75d1b5a9df2c4d9392f21a9e821113543ffc49571b3428d8e161802f8cc7"
+dependencies = [
+ "arrayvec",
+ "packed_struct",
+ "packed_struct_codegen",
+]
 
 [[package]]
 name = "indexmap"
@@ -2646,9 +2665,9 @@ dependencies = [
 
 [[package]]
 name = "objc-sys"
-version = "0.3.2"
+version = "0.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7c71324e4180d0899963fc83d9d241ac39e699609fc1025a850aadac8257459"
+checksum = "da284c198fb9b7b0603f8635185e85fbd5b64ee154b1ed406d489077de2d6d60"
 
 [[package]]
 name = "objc2"
@@ -2662,12 +2681,35 @@ dependencies = [
 
 [[package]]
 name = "objc2"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9a9c7f0d511a4ce26b078183179dca908171cfc69f88986fe36c5138e1834476"
+checksum = "b4b25e1034d0e636cd84707ccdaa9f81243d399196b8a773946dcffec0401659"
 dependencies = [
  "objc-sys",
- "objc2-encode 4.0.0",
+ "objc2-encode 4.0.1",
+]
+
+[[package]]
+name = "objc2-app-kit"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fb79768a710a9a1798848179edb186d1af7e8a8679f369e4b8d201dd2a034047"
+dependencies = [
+ "block2 0.5.0",
+ "objc2 0.5.1",
+ "objc2-core-data",
+ "objc2-foundation",
+]
+
+[[package]]
+name = "objc2-core-data"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6e092bc42eaf30a08844e6a076938c60751225ec81431ab89f5d1ccd9f958d6c"
+dependencies = [
+ "block2 0.5.0",
+ "objc2 0.5.1",
+ "objc2-foundation",
 ]
 
 [[package]]
@@ -2678,9 +2720,19 @@ checksum = "d079845b37af429bfe5dfa76e6d087d788031045b25cfc6fd898486fd9847666"
 
 [[package]]
 name = "objc2-encode"
-version = "4.0.0"
+version = "4.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2ff06a6505cde0766484f38d8479ac8e6d31c66fbc2d5492f65ca8c091456379"
+checksum = "88658da63e4cc2c8adb1262902cd6af51094df0488b760d6fd27194269c0950a"
+
+[[package]]
+name = "objc2-foundation"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cfaefe14254871ea16c7d88968c0ff14ba554712a20d76421eec52f0a7fb8904"
+dependencies = [
+ "block2 0.5.0",
+ "objc2 0.5.1",
+]
 
 [[package]]
 name = "objc_exception"
@@ -2747,6 +2799,27 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "706de7e2214113d63a8238d1910463cfce781129a6f263d13fdb09ff64355ba4"
 dependencies = [
  "ttf-parser",
+]
+
+[[package]]
+name = "packed_struct"
+version = "0.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "36b29691432cc9eff8b282278473b63df73bea49bc3ec5e67f31a3ae9c3ec190"
+dependencies = [
+ "bitvec",
+ "packed_struct_codegen",
+]
+
+[[package]]
+name = "packed_struct_codegen"
+version = "0.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9cd6706dfe50d53e0f6aa09e12c034c44faacd23e966ae5a209e8bdb8f179f98"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 1.0.109",
 ]
 
 [[package]]
@@ -3018,6 +3091,12 @@ checksum = "291ec9ab5efd934aaf503a6466c5d5251535d108ee747472c3977cc5acc868ef"
 dependencies = [
  "proc-macro2",
 ]
+
+[[package]]
+name = "radium"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dc33ff2d4973d518d823d61aa239014831e521c75da58e3df4840d3f47749d09"
 
 [[package]]
 name = "rand"
@@ -3641,6 +3720,12 @@ dependencies = [
  "toml",
  "version-compare",
 ]
+
+[[package]]
+name = "tap"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "55937e1799185b12863d447f42597ed69d9928686b8d88a1df17376a097d8369"
 
 [[package]]
 name = "target-lexicon"
@@ -4692,7 +4777,7 @@ dependencies = [
  "core-foundation",
  "core-graphics",
  "cursor-icon",
- "icrate 0.0.4",
+ "icrate",
  "js-sys",
  "libc",
  "log",
@@ -4732,6 +4817,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7c2e3184b9c4e92ad5167ca73039d0c42476302ab603e2fec4487511f38ccefc"
 dependencies = [
  "memchr",
+]
+
+[[package]]
+name = "wyz"
+version = "0.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "05f360fc0b24296329c78fda852a1e9ae82de9cf7b27dae4b7f62f118f77b9ed"
+dependencies = [
+ "tap",
 ]
 
 [[package]]

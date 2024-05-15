@@ -383,8 +383,6 @@ struct ContextImpl {
     #[cfg(feature = "accesskit")]
     is_accesskit_enabled: bool,
     #[cfg(feature = "accesskit")]
-    accesskit_node_classes: accesskit::NodeClassSet,
-
     loaders: Arc<Loaders>,
 }
 
@@ -1947,12 +1945,7 @@ impl ContextImpl {
                     state
                         .node_builders
                         .into_iter()
-                        .map(|(id, builder)| {
-                            (
-                                id.accesskit_id(),
-                                builder.build(&mut self.accesskit_node_classes),
-                            )
-                        })
+                        .map(|(id, builder)| (id.accesskit_id(), builder.build()))
                         .collect()
                 };
                 let focus_id = self
